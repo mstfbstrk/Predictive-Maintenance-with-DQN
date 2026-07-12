@@ -78,6 +78,7 @@ Eğitilen ajanların endüstriyel geçerliliğini doğrulamak için, varlık öm
 ### 🖥️ Nihai Doğrulama Günlükleri
 Terminal çıktısı, modelin kesin doğrulama davranışını sergilemekte ve politika miyopluğu (korkaklık/açgözlülük) sorununu tamamen çözmektedir:
 
+
 ```text
 ===================================================================
 ------- ÖĞRENİLEN OPTİMAL STRATEJİ SONUÇLARI (NİHAİ TEST) ---------
@@ -87,3 +88,12 @@ Girdi Sensör Durumu (Sıcaklık, Tork, Aşınma)      | Karar
 İdeal Senaryo (Düşük Risk Modu - [0, 0, 0])       | DEVAM ET
 Kritik Senaryo (Yüksek Risk Modu - [2, 2, 2])     | BAKIM YAP
 ===================================================================
+```
+
+## 6. Sonuç
+DQN modelleri sürekli durum alım kapasitesi sunar, ancak bakım eylemlerinin ($a_1$) neden olduğu anlık durum sıfırlamaları gibi ani ortam geçişleriyle karşılaştıklarında derin politika dalgalanmalarına karşı savunmasız kalırlar. Bu durum, modelin ya aşırı temkinli (korkak) ya da aşırı agresif (açgözlü) kararlar üretmesine neden olur.
+
+Buna karşılık, **Çok Boyutlu Tabular Q-Learning**, izole edilmiş durum-aksiyon uzaylarını doğrudan yönetir. Bu yapısal netlik, sinirsel genelleme hatalarını ortadan kaldırarak ajanın, üretim çıktısını maksimize etme ile kestirimci duruş yönetimi arasında optimal bir denge kurmasını sağlar. Sınırlı endüstriyel otomasyon döngüleri için çok boyutlu tabular algoritma, kritik sistemlerde konuşlandırılmak üzere en güvenilir çerçeveyi sunmaktadır.
+
+
+
